@@ -8,7 +8,7 @@ Standards: contains the coding standards that should be followed for this projec
 
 Src: contains the source code for this project
 
-Test: contains the unit and functional tests for this project
+Test: contains the system tests for this project
 
 Build: 
 
