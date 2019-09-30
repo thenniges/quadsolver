@@ -2,19 +2,19 @@
 
 Directories
 
-License: contains the relevant license files for this project
+license: contains the relevant license files for this project
 
-Standards: contains the coding standards that should be followed for this project
+standards: contains the coding standards that should be followed for this project
 
-Src: contains the source code for this project
+src: contains the source code for this project
 
-Test: contains the system tests for this project
+test: contains the system tests for this project
 
-Build: 
+build: 
 
-Lib: contains local copies of libraries that this project uses
+lib: contains local copies of libraries that this project uses
 
-Doc: contains the documentation for this project
+doc: contains the documentation for this project
 
-Spikes: contains spikes that have been done to understand how this project will work
+spikes: contains spikes that have been done to understand how this project will work
 
