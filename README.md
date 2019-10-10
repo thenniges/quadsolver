@@ -3,7 +3,9 @@
 When cloning this project you need to make some additional git commands to get the unity unit test framework
 
 cd quadsolver
+
 git submodule init
+
 git submodule update
 
 
