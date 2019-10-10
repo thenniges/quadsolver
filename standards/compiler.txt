@@ -1,2 +1,0 @@
-We will use gcc 7.4.0 which is the standard gcc compiler on ubuntu 18.04
-We will compile with the -wall and -pedantic flags
