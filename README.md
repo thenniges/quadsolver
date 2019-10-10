@@ -10,7 +10,7 @@ git submodule update
 
 
 
-Directories
+# Directories
 
 license: contains the relevant license files for this project
 
