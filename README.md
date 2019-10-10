@@ -1,5 +1,13 @@
 # quadsolver
 
+When cloning this project you need to make some additional git commands to get the unity unit test framework
+
+cd quadsolver
+git submodule init
+git submodule update
+
+
+
 Directories
 
 license: contains the relevant license files for this project
