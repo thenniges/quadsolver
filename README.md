@@ -22,7 +22,7 @@ Run it in the quadsolver directory using the following command:
 
 # Clean script
 
-There is a script to make clean all of the directories. Please run this command before pushing to the git repository. The command is:
+There is a script to make clean all of the directories. This will remove all executables and object files. The command is:
 
 ./clean.sh
 
