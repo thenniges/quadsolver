@@ -1,0 +1,5 @@
+*.o
+quadsolver
+validateTests
+formatTests
+calculateTests
