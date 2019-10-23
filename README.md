@@ -8,7 +8,23 @@ git submodule init
 
 git submodule update
 
+# Test script
 
+There is a test script in the quadsolver directory that will run every time that you save any of the source code. It will run all the tests for all subdirectories.
+
+In order to use it you need to install a python tool called when-changed. The command is:
+
+pip install when-changed
+
+Run it in the quadsolver directory using the following command:
+
+./watchtests.sh
+
+# Clean script
+
+There is a script to make clean all of the directories. Please run this command before pushing to the git repository. The command is:
+
+./clean.sh
 
 # Directories
 
