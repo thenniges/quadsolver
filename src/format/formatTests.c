@@ -20,7 +20,7 @@ void simple_output_message(void) {
     double delta = 100.0 * DBL_EPSILON;
     int flag = 0;
     char actual[46];
-    char * expected = "The roots of this function are 1.001 and 2.001.";
+    char * expected = "The roots of this function are 1.001 and 2.001.\n";
     //Call function
     flag = format(result1, result2, actual);
     TEST_ASSERT_EQUAL_INT(1, flag);

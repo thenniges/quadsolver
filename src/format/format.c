@@ -58,6 +58,7 @@ int format(double result1, double result2, char* output)
 	
 	strncat(output, "and ", 5);
 	strncat(output, result2String, sizeof(result2String));
+	strncat(output, "\n", 2);
 	
 	// strcat(output, result1String);
 	// strcat(output, result2String);

@@ -10,25 +10,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #include "putIt.h"
 #include <stdio.h>
+#include <string.h>
 #include <strings.h>
 
 int putIt(char* output)
 {
 
 
-	int len = strlen(output)-1;
-	if(len<0){
-		return -1;
-	}
+	// int len = strlen(output)-1;
 	if(output == NULL){
 		return -1;
 	}
-	if(output[len]!='\0'){
-		return -1;
+	if(strlen(output) <= 1){
+		return-1;
 	}
+
+
 
 	printf("%s", output);
 
 
 	return 1;
 }
+
+// int main(int argc, char* argv[]){
+// 	printf("%d",putIt(""));
+// 	return 1;
+// }
