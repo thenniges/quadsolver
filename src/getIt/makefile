@@ -12,8 +12,14 @@
 CC = gcc
 CFLAGS = -ggdb -Wall -pedantic -std=c11
 
+get: get.o getIt.o
+	${CC} ${CFLAGS} get.o getIt.o -o get
+
 getItTests: getIt.o getItTests.o ../../Unity/src/unity.c
 	${CC} ${CFLAGS} ../../Unity/src/unity.c getIt.o getItTests.o -o getItTests
+
+get.o: get.c
+	${CC} ${CFLAGS} -c get.c
 
 getIt.o: getIt.c getIt.h
 	${CC} ${CFLAGS} -c getIt.c

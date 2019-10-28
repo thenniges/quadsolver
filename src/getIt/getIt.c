@@ -10,8 +10,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 #include "getIt.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
+// get a string, length long or less, or return an error
+// use length to return actual string size
 int getIt(char* line, int* length)
 {
-	return 1;
+	char *buffer = NULL;
+	size_t actual = 0;
+	if (scanf("%ms", &buffer) > 0) {
+		if ((actual = strlen(buffer)) < *length) {
+			*length = actual;
+			line[*length] = '\0';
+		}
+		for (size_t i = 0; i < *length; i++) {
+			line[i] = buffer[i];
+		}
+		free(buffer);
+		return 1;
+	} else {
+		return -1;
+	}
 }
