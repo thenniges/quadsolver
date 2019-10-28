@@ -1,21 +1,39 @@
-/*
-Copyright 2019 Blacktop Group
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+#include <stdio.h>
+#include <math.h>
+#include “getIt.h”
+#include “putIt.h”
 
 
-#include "calculate/calculate.h"
-#include "format/format.h"
-#include "getIt/getIt.h"
-#include "putIt/putIt.h"
-#include "validate/validate.h"
 
-int main(int argc, char** argv)
+
+
+int main()
 {
-	return 0;
+  float a, b, c, determinant, r1,r2, real, imag;
+
+ printf("Enter coefficients a, b and c: ");
+
+ scanf("%f%f%f",&a,&b,&c);
+
+
+  determinant = b*b - 4*a * c;
+
+  if (determinant>0)
+  {
+      r1= (-b+sqrt(determinant))/(2*a);
+      r2= (-b-sqrt(determinant))/(2*a);
+      printf("Roots are: %.2f and %.2f",r1 , r2);
+  }
+  else if (determinant==0)
+  {
+    r1 = r2 = -b/(2*a);
+    printf("Roots are: %.2f and %.2f", r1, r2);
+  }
+  else
+  {
+    real= -b/(2*a);
+    imag = sqrt(-determinant)/(2*a);
+    printf("Roots are: %.2f+%.2fi and %.2f-%.2fi", real, imag, real, imag);
+  }
+  return 0;
 }
