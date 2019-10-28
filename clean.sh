@@ -8,3 +8,7 @@ cd ../format
 make clean
 cd ../calculate
 make clean
+cd ../getIt
+make clean
+cd ../putIt
+make clean

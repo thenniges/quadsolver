@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 int calculate(double a, double b, double c, double* result1, double* result2)
 {
 
-  	float determinant;
+  	double determinant;
 
  	//printf("Enter coefficients a, b and c: ");
 
