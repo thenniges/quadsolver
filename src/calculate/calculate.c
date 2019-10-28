@@ -9,8 +9,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 #include "calculate.h"
+#include <math.h>
 
 int calculate(double a, double b, double c, double* result1, double* result2)
 {
+
+  	float determinant;
+
+ 	//printf("Enter coefficients a, b and c: ");
+
+ 	//scanf("%f%f%f",&a,&b,&c);
+
+
+  	determinant = b*b - 4*a * c;
+
+  	if (determinant>0)
+  	{
+      	*result1 = (-b+sqrt(determinant))/(2*a);
+      	*result2 = (-b-sqrt(determinant))/(2*a);
+    	// printf("Roots are: %.2f and %.2f\n",r1 , r2);
+  	}
+  	else if (determinant==0)
+  	{
+    	*result1 = *result2 = -b/(2*a);
+    	// printf("Roots are: %.2f and %.2f\n", r1, r2);
+  	}
+  	else if(a > 0.00000000 && a <0.00000001)
+  	{
+		*result1 = *result2 = INFINITY;
+    	// real= -b/(2*a);
+    	// imag = sqrt(-determinant)/(2*a);
+    	// printf("Roots are: %.2f+%.2fi and %.2f-%.2fi\n", real, imag, real, imag);
+	}
+	else if(determinant < 0){
+		*result1 = *result2 = NAN;
+	}
 	return 1;
 }
