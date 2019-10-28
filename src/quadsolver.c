@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-#include “getIt.h”
-#include “putIt.h”
-
+#include â€œgetIt.hâ€
+#include â€œputIt.hâ€
+#include "validate.h"
+#include "calculate.h"
 
 
 
