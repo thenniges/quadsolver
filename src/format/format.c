@@ -27,7 +27,14 @@ int format(double result1, double result2, char* output)
 	}
 	else if(isinf(result1)!=0){
 		// printf("inf");
-		strncpy(result1String, "inf ", 5);
+		if(signbit(result1) == 0)
+		{
+			strncpy(result1String, "inf ", 5);
+		}
+		else
+		{
+			strncpy(result1String, "-inf ", 6);
+		}
 	}
 	else{
 		// printf("real number");
@@ -40,7 +47,14 @@ int format(double result1, double result2, char* output)
 	}
 	else if(isinf(result2)!=0){
 		// printf("inf");
-		strncpy(result2String, "inf.", 5);
+		if(signbit(result1) == 0)
+		{
+			strncpy(result2String, "inf.", 5);
+		}
+		else
+		{
+			strncpy(result2String, "-inf.", 6);
+		}
 	}
 	else{
 		// printf("real number");
