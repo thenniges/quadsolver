@@ -20,11 +20,13 @@ int getIt(char* line, int* length)
 {
 	char *buffer = NULL;
 	size_t actual = 0;
+	// auto-alloc a buffer to take in arbitrary input
 	if (scanf("%ms", &buffer) > 0) {
 		if ((actual = strlen(buffer)) < *length) {
 			*length = actual;
 			line[*length] = '\0';
 		}
+		// fill line from buffer
 		for (size_t i = 0; i < *length; i++) {
 			line[i] = buffer[i];
 		}
