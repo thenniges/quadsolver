@@ -12,5 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 int validate(double* a, double* b, double* c, char* line, int length)
 {
+
+	/**
+	 * if a = 0 then the result is INFINITY
+	 * if sqrt(b^2 - 4ac)<0 the result is NAN
+	 * else the result is a real number
+	 */
 	return 1;
 }
