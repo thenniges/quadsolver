@@ -4,5 +4,6 @@ validateTests
 formatTests
 calculateTests
 getItTests
+get
 putItTests
 a.out
