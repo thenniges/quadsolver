@@ -8,13 +8,14 @@
 
 int main()
 {
-	int getItFlag = 0;
-	int validateFlag = 0;
 	char line[1000]= {0};
 	int length = 1000;
 	double a, b, c = 0.0;
+	int getItFlag = getIt(line, &length);
+	int validateFlag = validate(&a, &b, &c, line, length);
 	while(getItFlag != 1 || validateFlag != 1)
 	{
+		//Print message to the user and log
 		getItFlag = getIt(line, &length);
 		validateFlag = validate(&a, &b, &c, line, length);
 	}
