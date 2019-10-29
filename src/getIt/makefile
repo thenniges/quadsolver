@@ -28,4 +28,4 @@ getItTests.o: getItTests.c ../../Unity/src/unity.h getIt.h
 	${CC} ${CFLAGS} -c getItTests.c
 
 clean:
-	rm -rf *.o getItTests core
+	rm -rf *.o getItTests get core
