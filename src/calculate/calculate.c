@@ -40,9 +40,11 @@ int calculate(double a, double b, double c, double* result1, double* result2)
     	// real= -b/(2*a);
     	// imag = sqrt(-determinant)/(2*a);
     	// printf("Roots are: %.2f+%.2fi and %.2f-%.2fi\n", real, imag, real, imag);
+		return *(result1);
 	}
 	else if(determinant < 0){
 		*result1 = *result2 = NAN;
+		return *(result1);
 	}
-	return 1;
+	return 0;
 }
