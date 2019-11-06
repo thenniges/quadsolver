@@ -30,6 +30,38 @@ void simple_int_calculate_test(void) {
     TEST_ASSERT_EQUAL_FLOAT(-3.0, result2);
 }
 
+void simple_int_calculate_test_with_invalid_NAN_input(void) {
+	//test stuff
+	double a = NAN;     //tests inputs for NAN
+    double b = NAN;
+    double c = NAN;
+    double result1, result2 = 0.0;
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(-1, flag);
+    TEST_ASSERT_EQUAL_FLOAT(NAN, a);
+    TEST_ASSERT_EQUAL_FLOAT(NAN, b);
+    TEST_ASSERT_EQUAL_FLOAT(NAN, c);
+
+}
+
+void simple_int_calculate_test_with_invalid_INF_input(void) {
+	//test stuff
+	double a = INFINITY;    //tests inputs for INF
+    double b = INFINITY;
+    double c = INFINITY;
+    double result1, result2 = 0.0;
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(-1, flag);
+    TEST_ASSERT_EQUAL_FLOAT(INFINITY, a);
+    TEST_ASSERT_EQUAL_FLOAT(INFINITY, b);
+    TEST_ASSERT_EQUAL_FLOAT(INFINITY, c);
+
+}
+
 void simple_int_calculate_with_delta(void) {
     //more test stuff
     double a = 1.0;
@@ -50,7 +82,7 @@ void simple_int_calculate_with_delta(void) {
 
 void simple_int_calculate_with_INF(void) {
     //more test stuff
-    double a = 0.0;
+    double a = 0.0;     //a is zero, causing a devide by zero
     double b = 2.0;
     double c = -3.0;
     double result1, result2 = 0.0;
@@ -68,7 +100,7 @@ void simple_int_calculate_with_INF(void) {
 
 void simple_int_calculate_with_NAN(void) {
     //more test stuff
-    double a = 2.0;
+    double a = 2.0;     //the determinant becomes less than zero
     double b = 0.0;
     double c = 3.0;
     double result1, result2 = 0.0;
@@ -91,5 +123,7 @@ int main(void) {
     RUN_TEST(simple_int_calculate_with_delta);
     RUN_TEST(simple_int_calculate_with_INF);
     RUN_TEST(simple_int_calculate_with_NAN);
+    RUN_TEST(simple_int_calculate_test_with_invalid_NAN_input);
+    RUN_TEST(simple_int_calculate_test_with_invalid_INF_input);
     return UNITY_END();
 }

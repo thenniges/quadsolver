@@ -14,7 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 int calculate(double a, double b, double c, double* result1, double* result2)
 {
-
+	if( isnan(a) || isnan(b) || isnan(c)){
+		return -1;
+	}
+	if( isinf(a) || isinf(b) || isinf(c)){
+		return -1;
+	}
   	double determinant;
 
  	//printf("Enter coefficients a, b and c: ");
@@ -45,7 +50,7 @@ int calculate(double a, double b, double c, double* result1, double* result2)
 	else if(determinant < 0){
 		*result1 = *result2 = NAN;
 	}
-	printf("%f", *result1);
-	printf("%f", *result2);
+	// printf("%f", *result1);
+	// printf("%f", *result2);
 	return 1;
 }
