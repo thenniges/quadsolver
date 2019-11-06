@@ -1,0 +1,6 @@
+We will system test using input redirection and diff. 
+We will create a file with sample input and another file with expected results from the sample input.
+We will run the program with the sample input directed into the program and the output directed to another file called actual.
+We will then diff the expected results file with the actual file.
+If anything is different it will output it.
+We will write a script to do all of this automatically.
