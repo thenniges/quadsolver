@@ -1,0 +1,4 @@
+We will follow the Barr C coding standard as our overarching standard.
+We will also validate all input going into a function.
+We will also be able to turn on logging.
+We will also have a help command for our program.
