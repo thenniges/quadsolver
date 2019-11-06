@@ -13,7 +13,7 @@ CC = gcc
 CFLAGS = -ggdb -Wall -pedantic -std=c11
 
 calculateTests: calculate.o calculateTests.o ../../Unity/src/unity.c
-	${CC} ${CFLAGS} ../../Unity/src/unity.c calculate.o calculateTests.o -o calculateTests
+	${CC} ${CFLAGS} ../../Unity/src/unity.c calculate.o calculateTests.o -o calculateTests -lm
 
 calculate.o: calculate.c calculate.h
 	${CC} ${CFLAGS} -c calculate.c
