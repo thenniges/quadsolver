@@ -9,6 +9,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 #include "calculate.h"
+#include <stdio.h>
 #include <math.h>
 
 int calculate(double a, double b, double c, double* result1, double* result2)
@@ -34,17 +35,17 @@ int calculate(double a, double b, double c, double* result1, double* result2)
     	*result1 = *result2 = -b/(2*a);
     	// printf("Roots are: %.2f and %.2f\n", r1, r2);
   	}
-  	else if(a > 0.00000000 && a <0.00000001)
+  	else if(a > -0.00009 && a < 0.00001)
   	{
 		*result1 = *result2 = INFINITY;
     	// real= -b/(2*a);
     	// imag = sqrt(-determinant)/(2*a);
     	// printf("Roots are: %.2f+%.2fi and %.2f-%.2fi\n", real, imag, real, imag);
-		return *(result1);
 	}
 	else if(determinant < 0){
 		*result1 = *result2 = NAN;
-		return *(result1);
 	}
-	return 0;
+	printf("%f", *result1);
+	printf("%f", *result2);
+	return 1;
 }
