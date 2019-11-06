@@ -6,7 +6,7 @@
 #include "./calculate/calculate.h"
 #include "./format/format.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 
 	printf("*************************************************************************\n");
