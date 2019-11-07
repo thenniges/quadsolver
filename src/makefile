@@ -37,3 +37,8 @@ validate.o: validate/validate.c validate/validate.h
 clean:
 	rm -f *.o core quadsolver
 
+tar:
+	tar -cvf ../../blacktop_qs.tar ../../quadsolver/
+
+tarsrc:
+	tar -cvf ../blacktop_qs_src.tar ../src/
