@@ -19,4 +19,15 @@
 : The roots of this function are 1.000000e+00 and 2.000000e+00.
 : The roots of this function are -2.000000e+00 and 1.000000e+00.
 : The roots of this function are -2.000000e+00 and 1.000000e+00.
-: 
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered was improperly formatted, try again.
+: The roots of this function are -1.000000e+00 and -1.000000e+00.
+: The input that you entered was improperly formatted, try again.
+: The input that you entered contained something too large or small, try again.
+: The input that you entered contained something too large or small, try again.
+: The input you entered had A equal to zero, which is invalid. try again: 
