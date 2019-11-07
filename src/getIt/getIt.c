@@ -31,6 +31,7 @@ int getIt(char* line, int* length)
 			line[i] = buffer[i];
 		}
 		free(buffer);
+		printf("%s", line);
 		return 1;
 	} else {
 		return -1;

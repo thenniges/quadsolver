@@ -35,8 +35,8 @@ int calculate(double a, double b, double c, double* result1, double* result2)
     	*result1 = *result2 = -b/(2*a);
     	// printf("Roots are: %.2f and %.2f\n", r1, r2);
   	}
-  	else if(a > -0.00001 && a < 0.00001)
-  	{
+  	else if(a == 0.0)
+	{
 		*result1 = *result2 = INFINITY;
     	// real= -b/(2*a);
     	// imag = sqrt(-determinant)/(2*a);
