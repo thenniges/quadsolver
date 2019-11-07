@@ -645,8 +645,6 @@ void simple_double_calculate_with_delta19(void) {
     TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
 }
 
-
-
 void simple_int_calculate_test_with_invalid_NAN_input(void) {
     //test stuff
     double a = NAN;     //tests inputs for NAN
