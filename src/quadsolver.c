@@ -45,10 +45,12 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	char line[1000]= {0};
+	int length = 1000;
+	double a, b, c = 0.0;
 	for(;;){
-		char line[1000]= {0};
-		int length = 1000;
-		double a, b, c = 0.0;
+		length = 1000;
+		a = 0.0; b = 0.0; c = 0.0;
 		printf(": ");
 		int getItFlag = getIt(line, &length);
 		if(log==1){
