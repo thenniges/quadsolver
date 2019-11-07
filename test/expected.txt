@@ -13,9 +13,10 @@
 **                                                                     **
 **  EX>  -1.000 2.123E26 3.456e-26                                     **
 **                                                                     **
-**  CTRL Z to quit                                                     **
+**  CTRL C or type quit to quit                                        **
 *************************************************************************
-The roots of this function are 0.0000 and 0.0000
-The roots of this function are 1.0000 and 2.0000
-The roots of this function are -2.0000 and 1.0000
-The roots of this function are -2.0000 and 1.0000
+: The roots of this function are -1.000000e+00 and -1.000000e+00.
+: The roots of this function are 1.000000e+00 and 2.000000e+00.
+: The roots of this function are -2.000000e+00 and 1.000000e+00.
+: The roots of this function are -2.000000e+00 and 1.000000e+00.
+: 
