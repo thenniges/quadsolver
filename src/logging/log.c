@@ -34,23 +34,23 @@ char *logger(const char *tag, const char *message);
 char *logger(const char *tag, const char *message)
 {
     FILE *f;
-    int count = 0;
-    time_t now;
-    char *hold[100];// this array stores logs messages to 100
+    // int count = 0;
+    // time_t now;
+    // char *hold[100];// this array stores logs messages to 100
     char *result = malloc(strlen(tag) + strlen(message) + 1);
 
-    time(&now);
-    strcpy(result, TAG);
-    strcat(result, message);
-    strcat(result, (char *)ctime(&now));
-    hold[count] = result;
+    // time(&now);
+    strncpy(result, TAG, sizeof(TAG));
+    strncat(result, message, strlen(message));
+    // char* time = (char *)ctime(&now);
+    strncat(result, "\n", 2 );
+    // hold[count] = result;
 
-    count++;
+    // count++;
     f = fopen("logs.txt", "a+");
-    if (f != NULL)
-       
-    fprintf(f, result, 1);
-
-    return result;
+    // if (f != NULL)
     
+    fprintf(f, result, 1);
+    fclose(f);
+    return result;
 }
