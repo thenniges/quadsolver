@@ -16,8 +16,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 int putIt(char* output)
 {
 
-
-	// int len = strlen(output)-1;
 	if(output == NULL){
 		return -1;
 	}
@@ -32,8 +30,3 @@ int putIt(char* output)
 
 	return 1;
 }
-
-// int main(int argc, char* argv[]){
-// 	printf("%d",putIt(""));
-// 	return 1;
-// }
