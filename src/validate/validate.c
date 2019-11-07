@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <math.h>
 #include <float.h>
 #include <errno.h>
+#include <string.h>
 #include "validate.h"
 
 int validate(double* a, double* b, double* c, char* line, int length)
@@ -24,7 +25,11 @@ int validate(double* a, double* b, double* c, char* line, int length)
 	errno = 0;
 
 	parsed = strtof(line, &endptr);		// try to parse a
-	if (parsed == 0.0) {				// failed, set the error code
+	if(strncmp(line, "quit\n", length)  == 0)
+	{
+		ret = VLDT_QUIT;
+	}
+	else if (parsed == 0.0) {				// failed, set the error code
 		if (endptr == line) {			// couldn't find a float
 			ret = VLDT_ERR_FORMAT;
 		} else if (errno == ERANGE) {	// input value is not normalized

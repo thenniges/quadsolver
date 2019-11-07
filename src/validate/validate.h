@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #define VLDT_ERR_A_ZERO (11)
 #define VLDT_ERR_INPUT_RANGE (12)
 #define VLDT_ERR_RESULT_NAN (14)
+#define VLDT_QUIT (15)
 
 #ifndef validate_H
 #define validate_H

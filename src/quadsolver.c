@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 	printf("**                                                                     **\n");
 	printf("**  EX>  -1.000 2.123E26 3.456e-26                                     **\n");
 	printf("**                                                                     **\n");
-	printf("**  CTRL C to quit                                                     **\n");
+	printf("**  CTRL C or type quit to quit                                        **\n");
 	printf("*************************************************************************\n");
 
 
@@ -47,13 +47,17 @@ for(;;){
 		break;
 	}
 	int validateFlag = validate(&a, &b, &c, line, length);
-	printf("a b c: %e %e %e\n", a, b, c);
+	// printf("a b c: %e %e %e\n", a, b, c);
 	while(getItFlag != 1 || validateFlag != 1)
 	{
 		//Print message to the user
 		if(getItFlag == -1)
 		{
 			printf("Unable to read user input, try again.\n: ");
+		}
+		else if(validateFlag == VLDT_QUIT)
+		{
+			return 0;
 		}
 		else if(validateFlag == VLDT_ERR)
 		{
@@ -70,7 +74,7 @@ for(;;){
 		}
 		else if(validateFlag == VLDT_ERR_INPUT_RANGE)
 		{
-			printf("The input that you entered contained something too large or small, try again.\n:");
+			printf("The input that you entered contained something too large or small, try again.\n: ");
 		}
 		else if (validateFlag == VLDT_ERR_RESULT_NAN)
 		{
@@ -93,7 +97,6 @@ for(;;){
 	int formatFlag = format(result1, result2, output);
 	if(formatFlag != 1)
 	{
-		//TODO:figure out what to do here
 		printf("We don't know how this happened");
 	}
 	int putItFlag = putIt(output);
