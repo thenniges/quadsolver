@@ -41,6 +41,7 @@ int main(int argc, char* argv[])
 	if(argv[1]!=NULL){
 		if(strcmp(argv[1],"logging")==0){
 			log=1;
+			printf("\n\n%s\n\n", "########################### LOGGING ENABLED #############################");
 		}
 	}
 
