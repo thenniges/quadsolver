@@ -34,7 +34,6 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		// gcvt(result1, 5, result1String);
 		sprintf(result1String, "%e", result1);
 		strncat(result1String, " ", 2);
 	}
@@ -52,7 +51,6 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		// gcvt(result2, 5, result2String);
 		sprintf(result2String, "%e", result2);
 		strncat(result2String, ".", 2);
 	}
