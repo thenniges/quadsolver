@@ -40,3 +40,9 @@ log.o : logging/log.c logging/logger.h
 clean:
 	rm -f *.o core quadsolver
 
+tar:
+	tar -cvf ../../blacktop_qs.tar ../../quadsolver/
+
+tarsrc:
+	tar -cvf ../blacktop_qs_src.tar ../src/
+
