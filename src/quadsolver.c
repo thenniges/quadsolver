@@ -37,7 +37,40 @@ int main(int argc, char* argv[])
 	int validateFlag = validate(&a, &b, &c, line, length);
 	while(getItFlag != 1 || validateFlag != 1)
 	{
-		//Print message to the user and log
+		//Print message to the user
+		if(getItFlag == -1)
+		{
+			printf("Unable to read user input, try again: ");
+		}
+		else if(validateFlag == VLDT_ERR)
+		{
+			//TODO: figure out what to print here
+			printf("Something went wrong with your input, try again: ");
+		}
+		else if(validateFlag == VLDT_ERR_FORMAT)
+		{
+			printf("The input that you entered was improperly formatted, try again: ");
+		}
+		else if(validateFlag == VLDT_ERR_A_ZERO)
+		{
+			printf("The input you entered had A equal to zero, which is invalid. Try again: ");
+		}
+		else if(validateFlag == VLDT_ERR_INPUT_NAN)
+		{
+			printf("The input that you entered contained something that could not be converted to a number, try again:");
+		}
+		else if (validateFlag == VLDT_ERR_INPUT_INF)
+		{
+			printf("The input that you entered contained something that was converted to infinity, try again: ");
+		}
+		else if (validateFlag == VLDT_ERR_RESULT_NAN)
+		{
+			printf("The input that you entered would have a result that is not a number, try again: ");
+		}
+		else
+		{
+			printf("Something went wrong with your input, try again: ");
+		}
 		getItFlag = getIt(line, &length);
 		validateFlag = validate(&a, &b, &c, line, length);
 	}
@@ -45,18 +78,19 @@ int main(int argc, char* argv[])
 	int calculateFlag = calculate(a, b, c, &result1, &result2);
 	if(calculateFlag != 1)
 	{
-		//DO logging
+		printf("one of the input variables was an INF or NAN \n");
 	}
 	char output[1000]= {0}; 
 	int formatFlag = format(result1, result2, output);
 	if(formatFlag != 1)
 	{
-		//Do Logging
+		//TODO:figure out what to do here
+		printf("We don't know how this happened");
 	}
 	int putItFlag = putIt(output);
 	if(putItFlag != 1)
 	{
-		//Do logging
+		printf("There was nothing to be output");
 	}
 // }
 	return 0;
