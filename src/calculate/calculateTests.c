@@ -494,9 +494,9 @@ void simple_double_calculate_with_delta10(void) {
 
 void simple_double_calculate_with_delta11(void) {
     //more test stuff
-    double tx1 = 3.1;
-    double tx2 = 3.1;
-    double a = -17.1;
+    double tx1 = 0.1;
+    double tx2 = 5.1;
+    double a = 1.0;
     double b = a * (-tx1 + -tx2);
     double c = a * (tx1 * tx2);
     double result1, result2 = 0.0;
@@ -508,6 +508,144 @@ void simple_double_calculate_with_delta11(void) {
     TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
     TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
 }
+
+void simple_double_calculate_with_delta12(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 5.1;
+    double a = 19.1;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta13(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 5.1;
+    double a = -19.1;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta14(void) {
+    //more test stuff
+    double tx1 = -5.1;
+    double tx2 = 0.1;
+    double a = 1.0;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta15(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 5.1;
+    double a = 23.1;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta16(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 5.1;
+    double a = -23.1;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta17(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 0.1;
+    double a = 1.0;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta18(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 0.1;
+    double a = -1.0;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+void simple_double_calculate_with_delta19(void) {
+    //more test stuff
+    double tx1 = 0.1;
+    double tx2 = 0.1;
+    double a = -11.1;
+    double b = a * (-tx1 + -tx2);
+    double c = a * (tx1 * tx2);
+    double result1, result2 = 0.0;
+    double delta = 4.0 * DBL_EPSILON; //Relative error
+    int flag;
+    //Call function
+    flag = calculate(a, b, c, &result1, &result2);
+    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx1, result1);
+    TEST_ASSERT_FLOAT_WITHIN(delta, tx2, result2);
+}
+
+
 
 void simple_int_calculate_test_with_invalid_NAN_input(void) {
     //test stuff
@@ -609,7 +747,15 @@ int main(void) {
     RUN_TEST(simple_double_calculate_with_delta8);
     RUN_TEST(simple_double_calculate_with_delta9);
     RUN_TEST(simple_double_calculate_with_delta10);
-    // RUN_TEST(simple_double_calculate_with_delta11);
+    RUN_TEST(simple_double_calculate_with_delta11);
+    RUN_TEST(simple_double_calculate_with_delta12);
+    RUN_TEST(simple_double_calculate_with_delta13);
+    RUN_TEST(simple_double_calculate_with_delta14);
+    RUN_TEST(simple_double_calculate_with_delta15);
+    RUN_TEST(simple_double_calculate_with_delta16);
+    RUN_TEST(simple_double_calculate_with_delta17);
+    RUN_TEST(simple_double_calculate_with_delta18);
+    RUN_TEST(simple_double_calculate_with_delta19);
     RUN_TEST(simple_int_calculate_test_with_invalid_NAN_input);
     RUN_TEST(simple_int_calculate_test_with_invalid_INF_input);
     RUN_TEST(simple_int_calculate_with_INF);
