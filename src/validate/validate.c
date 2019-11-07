@@ -22,10 +22,7 @@ int validate(double* a, double* b, double* c, char* line, int length)
 	char *oldptr = NULL;
 	errno = 0;
 
-	printf("%s\n", line);
-
 	parsed = strtof(line, &endptr);		// try to parse a
-	printf("%f\n", parsed);
 	if (parsed == 0.0) {				// failed, set the error code
 		if (endptr == line) {			// couldn't find a float
 			ret = VLDT_ERR_FORMAT;
@@ -38,11 +35,9 @@ int validate(double* a, double* b, double* c, char* line, int length)
 		ret = VLDT_ERR_INPUT_RANGE;		// also not allowed
 	} else {							// a is ok
 		*a = (double) parsed;
-		printf("a: %f\n%s\n", *a, endptr);
 		oldptr = endptr;
 
-		parsed = strtof(line, &endptr);	// try to parse b
-		printf("%f\n", parsed);
+		parsed = strtof(endptr, &endptr);	// try to parse b
 		if (oldptr == endptr) {
 			ret = VLDT_ERR_FORMAT;
 		} else if ((errno == ERANGE) ||
@@ -50,11 +45,9 @@ int validate(double* a, double* b, double* c, char* line, int length)
 			ret = VLDT_ERR_INPUT_RANGE;
 		} else {
 			*b = (double) parsed;
-			printf("b: %f\n%s\n", *b, endptr);
 			oldptr = endptr;
 
-			parsed = strtof(line, &endptr);
-			printf("%f\n", parsed);
+			parsed = strtof(endptr, &endptr);
 			if (oldptr == endptr) {
 				ret = VLDT_ERR_FORMAT;
 			} else if ((errno == ERANGE) ||
@@ -64,7 +57,6 @@ int validate(double* a, double* b, double* c, char* line, int length)
 				ret = VLDT_ERR_RESULT_NAN;
 			} else {
 				*c = (double) parsed;
-				printf("c: %f\n%s\n", *c, endptr);
 				ret = VLDT_SUCCESS;
 			}
 		}
