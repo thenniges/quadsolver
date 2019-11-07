@@ -8,9 +8,9 @@ git submodule init
 
 git submodule update
 
-# Test script
+# Test scripts
 
-There is a test script in the quadsolver directory that will run every time that you save any of the source code. It will run all the tests for all subdirectories.
+There is a test script in the quadsolver directory that will run every time that you save any of the source code. It will run all the unit tests for all subdirectories.
 
 In order to use it you need to install a python tool called when-changed. The command is:
 
@@ -19,6 +19,10 @@ pip install when-changed
 Run it in the quadsolver directory using the following command:
 
 ./watchtests.sh
+
+There is also a system test script in the test folder that can be ran using the following command:
+
+./runtest.sh
 
 # Clean script
 
