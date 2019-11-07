@@ -65,7 +65,6 @@ int main(int argc, char* argv[])
 		
 			if(getItFlag==1){
 				logger(TAG, "GETIT PASSED\t");
-				// logger(TAG, "DO IT AGAIN\t");
 			}
 			else{
 				logger(TAG, "GETIT FAILED\t");
@@ -77,7 +76,6 @@ int main(int argc, char* argv[])
 		}
 		int validateFlag = validate(&a, &b, &c, line, length);
 	
-		// printf("a b c: %e %e %e\n", a, b, c);
 		while(getItFlag != 1 || validateFlag != 1)
 		{
 			//Print message to the user
