@@ -45,146 +45,147 @@ int main(int argc, char* argv[])
 		}
 	}
 
-for(;;){
-	char line[1000]= {0};
-	int length = 1000;
-	double a, b, c = 0.0;
-	printf(": ");
-	int getItFlag = getIt(line, &length);
-	if(log==1){
+	for(;;){
+		char line[1000]= {0};
+		int length = 1000;
+		double a, b, c = 0.0;
+		printf(": ");
+		int getItFlag = getIt(line, &length);
+		if(log==1){
 		
-		if(getItFlag==1){
-			logger(TAG, "GETIT PASSED\t");
-			// logger(TAG, "DO IT AGAIN\t");
-		}
-		else{
-			logger(TAG, "GETIT FAILED\t");
-		}
-	}
-	// quit?
-	if (getItFlag == GETIT_QUIT) {
-		break;
-	}
-	int validateFlag = validate(&a, &b, &c, line, length);
-	
-	// printf("a b c: %e %e %e\n", a, b, c);
-	while(getItFlag != 1 || validateFlag != 1)
-	{
-		//Print message to the user
-		if(getItFlag == -1)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE CANT READ INPUT\t");
-			}
-			printf("Unable to read user input, try again.\n: ");
-		}
-		else if(validateFlag == VLDT_QUIT)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE QUIT\t");
-			}
-			return 0;
-		}
-		else if(validateFlag == VLDT_ERR)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE BAD INPUT\t");
-			}
-			//TODO: figure out what to print here
-			printf("Something went wrong with your input, try again.\n: ");
-		}
-		else if(validateFlag == VLDT_ERR_FORMAT)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE BAD FORMAT\t");
-			}
-			printf("The input that you entered was improperly formatted, try again.\n: ");
-		}
-		else if(validateFlag == VLDT_ERR_A_ZERO)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE EQUAL ZERO\t");
-			}
-			printf("The input you entered had A equal to zero, which is invalid. try again: ");
-		}
-		else if(validateFlag == VLDT_ERR_INPUT_RANGE)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE BAD INPUT RANGE\t");
-			}
-			printf("The input that you entered contained something too large or small, try again.\n: ");
-		}
-		else if (validateFlag == VLDT_ERR_RESULT_NAN)
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE NAN\t");
-			}
-			printf("The input that you entered would have a result that is not a number, try again.\n: ");
-		}
-		else
-		{
-			if(log==1){
-				logger(TAG, "VALIDATE GENERAL ERROR\t");
-			}
-			printf("Something went wrong with your input, try again.\n: ");
-		}
-		getItFlag = getIt(line, &length);
-		if(log==1){
 			if(getItFlag==1){
-				logger(TAG, "GETIT PASS\t");
+				logger(TAG, "GETIT PASSED\t");
+				// logger(TAG, "DO IT AGAIN\t");
+			}
+			else{
+				logger(TAG, "GETIT FAILED\t");
 			}
 		}
-		validateFlag = validate(&a, &b, &c, line, length);
-		if(log==1){
-			if(validateFlag==1){
-			
-				logger(TAG, "VALIDATE PASS\t");
-			
+		// quit?
+		if (getItFlag == GETIT_QUIT) {
+			break;
+		}
+		int validateFlag = validate(&a, &b, &c, line, length);
+	
+		// printf("a b c: %e %e %e\n", a, b, c);
+		while(getItFlag != 1 || validateFlag != 1)
+		{
+			//Print message to the user
+			if(getItFlag == -1)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE CANT READ INPUT\t");
+				}
+				printf("Unable to read user input, try again.\n: ");
 			}
-		}
-	}
-	double result1, result2 = 0.0;
-	int calculateFlag = calculate(a, b, c, &result1, &result2);
-	if(calculateFlag != 1)
-	{
-		if(log==1){
-				logger(TAG, "CALCULATE INF OR NAN INPUT\t");
-		}
-		printf("one of the input variables was an INF or NAN \n");
-	}
-	if(calculateFlag==1){
-		if(log==1){
-			logger(TAG, "CALCULATE PASS\t");
-		}
+			else if(validateFlag == VLDT_QUIT)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE QUIT\t");
+				}
+				return 0;
+			}
+			else if(validateFlag == VLDT_ERR)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE BAD INPUT\t");
+				}
+				//TODO: figure out what to print here
+				printf("Something went wrong with your input, try again.\n: ");
+			}
+			else if(validateFlag == VLDT_ERR_FORMAT)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE BAD FORMAT\t");
+				}
+				printf("The input that you entered was improperly formatted, try again.\n: ");
+			}
+			else if(validateFlag == VLDT_ERR_A_ZERO)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE EQUAL ZERO\t");
+				}
+				printf("The input you entered had A equal to zero, which is invalid. try again: ");
+			}
+			else if(validateFlag == VLDT_ERR_INPUT_RANGE)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE BAD INPUT RANGE\t");
+				}
+				printf("The input that you entered contained something too large or small, try again.\n: ");
+			}
+			else if (validateFlag == VLDT_ERR_RESULT_NAN)
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE NAN\t");
+				}
+				printf("The input that you entered would have a result that is not a number, try again.\n: ");
+			}
+			else
+			{
+				if(log==1){
+					logger(TAG, "VALIDATE GENERAL ERROR\t");
+				}
+				printf("Something went wrong with your input, try again.\n: ");
+			}
+			getItFlag = getIt(line, &length);
+			if(log==1){
+				if(getItFlag==1){
+					logger(TAG, "GETIT PASS\t");
+				}
+			}
+			length = 1000;
+			validateFlag = validate(&a, &b, &c, line, length);
+			if(log==1){
+				if(validateFlag==1){
+					
+					logger(TAG, "VALIDATE PASS\t");
 
-	}
-	char output[1000]= {0};
-	int formatFlag = format(result1, result2, output);
-	if(formatFlag != 1)
-	{
-		if(log==1){
-			logger(TAG, "FORMAT UNKNOWN ERR\t");
+				}
+			}
 		}
-		printf("We don't know how this happened");
-	}
-	if(formatFlag==1){
-		if(log==1){
-			logger(TAG, "FORMAT PASS\t");
+		double result1, result2 = 0.0;
+		int calculateFlag = calculate(a, b, c, &result1, &result2);
+		if(calculateFlag != 1)
+		{
+			if(log==1){
+					logger(TAG, "CALCULATE INF OR NAN INPUT\t");
+			}
+			printf("one of the input variables was an INF or NAN \n");
 		}
-	}
-	int putItFlag = putIt(output);
-	if(putItFlag != 1)
-	{
-		if(log==1){
-			logger(TAG, "PUTIT NO OUTPUT\t");
+		if(calculateFlag==1){
+			if(log==1){
+				logger(TAG, "CALCULATE PASS\t");
+			}	
+
 		}
-		printf("There was nothing to be output");
-	}
-	if(putItFlag==1){
-		if(log==1){
-			logger(TAG, "PUTIT PASS\t");
+		char output[1000]= {0};
+		int formatFlag = format(result1, result2, output);
+		if(formatFlag != 1)
+		{
+			if(log==1){
+				logger(TAG, "FORMAT UNKNOWN ERR\t");
+			}
+			printf("We don't know how this happened");
 		}
-	}
-}//endfor
+		if(formatFlag==1){
+			if(log==1){
+				logger(TAG, "FORMAT PASS\t");
+			}
+		}
+		int putItFlag = putIt(output);
+		if(putItFlag != 1)
+		{
+			if(log==1){
+				logger(TAG, "PUTIT NO OUTPUT\t");
+			}
+			printf("There was nothing to be output");
+		}
+		if(putItFlag==1){
+			if(log==1){
+				logger(TAG, "PUTIT PASS\t");
+			}
+		}
+	}//endfor
 	return 0;
 }
