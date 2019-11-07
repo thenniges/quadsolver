@@ -12,6 +12,7 @@
 CC = gcc
 CFLAGS = -ggdb -Wall -pedantic -std=c11
 
+
 quadsolver: quadsolver.o getIt.o putIt.o format.o calculate.o validate.o
 	${CC} ${CFLAGS} getIt.o putIt.o format.o calculate.o validate.o quadsolver.o -o quadsolver -lm
 
@@ -35,3 +36,4 @@ validate.o: validate/validate.c validate/validate.h
 
 clean:
 	rm -f *.o core quadsolver
+

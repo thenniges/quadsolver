@@ -1,3 +1,9 @@
+
+
+
+
+
+
 #include <stdio.h>
 #include <math.h>
 #include "./getIt/getIt.h"
@@ -8,6 +14,7 @@
 
 int main(int argc, char* argv[])
 {
+
 
 	printf("*************************************************************************\n");
 	printf("**  quadsolver                                                         **\n");
@@ -24,17 +31,21 @@ int main(int argc, char* argv[])
 	printf("**                                                                     **\n");
 	printf("**  EX>  -1.000 2.123E26 3.456e-26                                     **\n");
 	printf("**                                                                     **\n");
-	printf("**  CTRL Z to quit                                                     **\n");
+	printf("**  CTRL C to quit                                                     **\n");
 	printf("*************************************************************************\n");
 
 
 
-// for(;;){
+for(;;){
 	char line[1000]= {0};
 	int length = 1000;
 	double a, b, c = 0.0;
 	int getItFlag = getIt(line, &length);
+	printf("The line: %s\n", line);
 	int validateFlag = validate(&a, &b, &c, line, length);
+	printf("\na, b, c: %f ", a);
+	printf("%f ", b);
+	printf("%f \n", c);
 	while(getItFlag != 1 || validateFlag != 1)
 	{
 		//Print message to the user
@@ -88,6 +99,6 @@ int main(int argc, char* argv[])
 	{
 		printf("There was nothing to be output");
 	}
-// }
+}//endfor
 	return 0;
 }
