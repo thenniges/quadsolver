@@ -138,13 +138,13 @@ int main(int argc, char* argv[])
 				}
 				printf("Something went wrong with your input, try again.\n: ");
 			}
+			length = 1000;
 			getItFlag = getIt(line, &length);
 			if(log==1){
 				if(getItFlag==1){
 					logger(TAG, "GETIT PASS\t");
 				}
 			}
-			length = 1000;
 			validateFlag = validate(&a, &b, &c, line, length);
 			if(log==1){
 				if(validateFlag==1){
