@@ -20,13 +20,10 @@ int format(double result1, double result2, char* output)
 	
 	char  result1String[80];
 	char  result2String[80];
-	// char * startOfOutput = ;
 	if(isnan(result1)!=0){
-		// printf("nan");
 		strncpy(result1String, "nan ", 5);
 	}
 	else if(isinf(result1)!=0){
-		// printf("inf");
 		if(signbit(result1) == 0)
 		{
 			strncpy(result1String, "inf ", 5);
@@ -37,16 +34,13 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		// printf("real number");
 		gcvt(result1, 5, result1String);
 		strncat(result1String, " ", 2);
 	}
 	if(isnan(result2)!=0){
-		// printf("nan");
 		strncpy(result2String, "nan.", 5);
 	}
 	else if(isinf(result2)!=0){
-		// printf("inf");
 		if(signbit(result1) == 0)
 		{
 			strncpy(result2String, "inf.", 5);
@@ -57,15 +51,9 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		// printf("real number");
 		gcvt(result2, 5, result2String);
 		strncat(result2String, ".", 2);
 	}
-	// char* startOfOutput = "The roots of this function are ";
-	// int i;
-	// for(i = 0 ; i < strlen(startOfOutput) ;i++){
-	// 	output[i] = startOfOutput[i];
-	// }output[i] = '\0';
 
 	strncpy(output, "The roots of this function are ", 32);
 	strncat(output, result1String, sizeof(result1String));
@@ -74,15 +62,5 @@ int format(double result1, double result2, char* output)
 	strncat(output, result2String, sizeof(result2String));
 	strncat(output, "\n", 2);
 	
-	// strcat(output, result1String);
-	// strcat(output, result2String);
 	return 1;
 }
-
-// int main(int argc, char* argv[]){
-// 	char *output = calloc(62, sizeof(char));
-// 	// output[0] = '\0';
-// 	format(INFINITY, .123, output);
-// 	printf("\n%s",output);
-// 	return 1;
-// }
