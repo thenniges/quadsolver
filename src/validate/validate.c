@@ -8,15 +8,67 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <errno.h>
 #include "validate.h"
 
 int validate(double* a, double* b, double* c, char* line, int length)
 {
+	int ret = VLDT_ERR;
+	float parsed = NAN;					// buffer for strtof() results
+	char *endptr = NULL;				// required by strtof()
+	char *oldptr = NULL;
+	errno = 0;
 
-	/**
-	 * if a = 0 then the result is INFINITY
-	 * if sqrt(b^2 - 4ac)<0 the result is NAN
-	 * else the result is a real number
-	 */
-	return 1;
+	printf("%s\n", line);
+
+	parsed = strtof(line, &endptr);		// try to parse a
+	printf("%f\n", parsed);
+	if (parsed == 0.0) {				// failed, set the error code
+		if (endptr == line) {			// couldn't find a float
+			ret = VLDT_ERR_FORMAT;
+		} else if (errno == ERANGE) {	// input value is not normalized
+			ret = VLDT_ERR_INPUT_RANGE;
+		} else {						// a is 0, not allowed
+			ret = VLDT_ERR_A_ZERO;
+		}
+	} else if ((parsed == NAN) || (parsed == INFINITY)) {
+		ret = VLDT_ERR_INPUT_RANGE;		// also not allowed
+	} else {							// a is ok
+		*a = (double) parsed;
+		printf("a: %f\n%s\n", *a, endptr);
+		oldptr = endptr;
+
+		parsed = strtof(line, &endptr);	// try to parse b
+		printf("%f\n", parsed);
+		if (oldptr == endptr) {
+			ret = VLDT_ERR_FORMAT;
+		} else if ((errno == ERANGE) ||
+			(parsed == NAN) || (parsed == INFINITY)) {
+			ret = VLDT_ERR_INPUT_RANGE;
+		} else {
+			*b = (double) parsed;
+			printf("b: %f\n%s\n", *b, endptr);
+			oldptr = endptr;
+
+			parsed = strtof(line, &endptr);
+			printf("%f\n", parsed);
+			if (oldptr == endptr) {
+				ret = VLDT_ERR_FORMAT;
+			} else if ((errno == ERANGE) ||
+				(parsed == NAN) || (parsed == INFINITY)) {
+				ret = VLDT_ERR_INPUT_RANGE;
+			} else if (sqrt(((*b)*(*b)) - 4*(*a)*(*c)) < 0) {
+				ret = VLDT_ERR_RESULT_NAN;
+			} else {
+				*c = (double) parsed;
+				printf("c: %f\n%s\n", *c, endptr);
+				ret = VLDT_SUCCESS;
+			}
+		}
+	}
+
+	return ret;
 }

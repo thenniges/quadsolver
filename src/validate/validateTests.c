@@ -18,10 +18,10 @@ void simple_float_input(void) {
 	double a,b,c = 0;
     char* line;
     int flag;
-    line = "1.0, 2.0, 3.0";
+    line = "1.0 2.0 3.0";
     //Call function
     flag = validate(&a, &b, &c, line, 13);
-    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_EQUAL_INT(VLDT_SUCCESS, flag);
     TEST_ASSERT_EQUAL_FLOAT(1.0, a);
     TEST_ASSERT_EQUAL_FLOAT(2.0, b);
     TEST_ASSERT_EQUAL_FLOAT(3.0, c);
@@ -33,10 +33,10 @@ void simple_float_input_with_delta(void) {
     char* line;
     int flag;
     double delta = 100.0 * DBL_EPSILON;
-    line = "1.0, 2.0, 3.0";
+    line = "1.0 2.0 3.0";
     //Call function
     flag = validate(&a, &b, &c, line, 13);
-    TEST_ASSERT_EQUAL_INT(1, flag);
+    TEST_ASSERT_EQUAL_INT(VLDT_SUCCESS, flag);
     TEST_ASSERT_FLOAT_WITHIN(delta, 1.0, a);
     TEST_ASSERT_FLOAT_WITHIN(delta, 2.0, b);
     TEST_ASSERT_FLOAT_WITHIN(delta, 3.0, c);

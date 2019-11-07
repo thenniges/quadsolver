@@ -13,13 +13,13 @@ CC = gcc
 CFLAGS = -ggdb -Wall -pedantic -std=c11
 
 validateTests: validate.o validateTests.o ../../Unity/src/unity.c
-	${CC} ${CFLAGS} ../../Unity/src/unity.c validate.o validateTests.o -o validateTests
+	${CC} ${CFLAGS} ../../Unity/src/unity.c validate.o validateTests.o -o validateTests -lm
 
 validate.o: validate.c validate.h
 	${CC} ${CFLAGS} -c validate.c
 
 validateTests.o: validateTests.c ../../Unity/src/unity.h validate.h
-	${CC} ${CFLAGS} -c validateTests.c 
+	${CC} ${CFLAGS} -c validateTests.c
 
 clean:
 	rm -rf *.o validateTests core
