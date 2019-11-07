@@ -27,6 +27,8 @@ int main(int argc, char* argv[])
 	printf("**  CTRL Z to quit                                                     **\n");
 	printf("*************************************************************************\n");
 
+
+
 // for(;;){
 	char line[1000]= {0};
 	int length = 1000;
