@@ -22,6 +22,12 @@ int getIt(char* line, int* length)
 	} else {
 		*length = strlen(line);
 		__fpurge(stdin);
+		// quit on ctrl-z
+		for (size_t i = 0; i < *length; i++) {
+			if (line[i] == '\032') {
+				return GETIT_QUIT;
+			}
+		}
 		return 1;
 	}
 }

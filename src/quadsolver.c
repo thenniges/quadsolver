@@ -40,27 +40,29 @@ for(;;){
 	char line[1000]= {0};
 	int length = 1000;
 	double a, b, c = 0.0;
+	printf(": ");
 	int getItFlag = getIt(line, &length);
-	printf("The line: %s\n", line);
+	// quit?
+	if (getItFlag == GETIT_QUIT) {
+		break;
+	}
 	int validateFlag = validate(&a, &b, &c, line, length);
-	printf("\na, b, c: %f ", a);
-	printf("%f ", b);
-	printf("%f \n", c);
+	printf("a b c: %e %e %e\n", a, b, c);
 	while(getItFlag != 1 || validateFlag != 1)
 	{
 		//Print message to the user
 		if(getItFlag == -1)
 		{
-			printf("Unable to read user input, try again: ");
+			printf("Unable to read user input, try again.\n: ");
 		}
 		else if(validateFlag == VLDT_ERR)
 		{
 			//TODO: figure out what to print here
-			printf("Something went wrong with your input, try again: ");
+			printf("Something went wrong with your input, try again.\n: ");
 		}
 		else if(validateFlag == VLDT_ERR_FORMAT)
 		{
-			printf("The input that you entered was improperly formatted, try again: ");
+			printf("The input that you entered was improperly formatted, try again.\n: ");
 		}
 		else if(validateFlag == VLDT_ERR_A_ZERO)
 		{
@@ -68,15 +70,15 @@ for(;;){
 		}
 		else if(validateFlag == VLDT_ERR_INPUT_RANGE)
 		{
-			printf("The input that you entered contained something too large or small, try again:");
+			printf("The input that you entered contained something too large or small, try again.\n:");
 		}
 		else if (validateFlag == VLDT_ERR_RESULT_NAN)
 		{
-			printf("The input that you entered would have a result that is not a number, try again: ");
+			printf("The input that you entered would have a result that is not a number, try again.\n: ");
 		}
 		else
 		{
-			printf("Something went wrong with your input, try again: ");
+			printf("Something went wrong with your input, try again.\n: ");
 		}
 		getItFlag = getIt(line, &length);
 		validateFlag = validate(&a, &b, &c, line, length);

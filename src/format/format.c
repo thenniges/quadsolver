@@ -17,7 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 int format(double result1, double result2, char* output)
 {
-	
+
 	char  result1String[80];
 	char  result2String[80];
 	if(isnan(result1)!=0){
@@ -34,7 +34,8 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		gcvt(result1, 5, result1String);
+		// gcvt(result1, 5, result1String);
+		sprintf(result1String, "%e", result1);
 		strncat(result1String, " ", 2);
 	}
 	if(isnan(result2)!=0){
@@ -51,16 +52,17 @@ int format(double result1, double result2, char* output)
 		}
 	}
 	else{
-		gcvt(result2, 5, result2String);
+		// gcvt(result2, 5, result2String);
+		sprintf(result2String, "%e", result2);
 		strncat(result2String, ".", 2);
 	}
 
 	strncpy(output, "The roots of this function are ", 32);
 	strncat(output, result1String, sizeof(result1String));
-	
+
 	strncat(output, "and ", 5);
 	strncat(output, result2String, sizeof(result2String));
 	strncat(output, "\n", 2);
-	
+
 	return 1;
 }

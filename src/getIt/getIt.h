@@ -11,6 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #ifndef getIt_H
 #define getIt_H
 
+#define GETIT_QUIT (10)
+
 int getIt(char*, int*);
 
 #endif
