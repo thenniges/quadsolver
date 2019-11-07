@@ -1,0 +1,21 @@
+*************************************************************************
+**  quadsolver                                                         **
+**  Created By Blacktop Group:                                         **
+**  Allin Kahrl                                                        **
+**  Tyler Henniges                                                     **
+**  Erron Johnson                                                      **
+**  Skyler Sheler                                                      **
+*************************************************************************
+**                          Valid Inputs                               **
+**  A B and C should be entered on a single line seperated by spaces   **
+**  and be rounded to four significant figures. Inputs will be         **
+**  truncated to four significant digits.                              **
+**                                                                     **
+**  EX>  -1.000 2.123E26 3.456e-26                                     **
+**                                                                     **
+**  CTRL Z to quit                                                     **
+*************************************************************************
+The roots of this function are 0.0000 and 0.0000
+The roots of this function are 1.0000 and 2.0000
+The roots of this function are -2.0000 and 1.0000
+The roots of this function are -2.0000 and 1.0000
