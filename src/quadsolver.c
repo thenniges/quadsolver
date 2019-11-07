@@ -53,15 +53,11 @@ int main(int argc, char* argv[])
 		}
 		else if(validateFlag == VLDT_ERR_A_ZERO)
 		{
-			printf("The input you entered had A equal to zero, which is invalid. Try again: ");
+			printf("The input you entered had A equal to zero, which is invalid. try again: ");
 		}
-		else if(validateFlag == VLDT_ERR_INPUT_NAN)
+		else if(validateFlag == VLDT_ERR_INPUT_RANGE)
 		{
-			printf("The input that you entered contained something that could not be converted to a number, try again:");
-		}
-		else if (validateFlag == VLDT_ERR_INPUT_INF)
-		{
-			printf("The input that you entered contained something that was converted to infinity, try again: ");
+			printf("The input that you entered contained something too large or small, try again:");
 		}
 		else if (validateFlag == VLDT_ERR_RESULT_NAN)
 		{
@@ -80,7 +76,7 @@ int main(int argc, char* argv[])
 	{
 		printf("one of the input variables was an INF or NAN \n");
 	}
-	char output[1000]= {0}; 
+	char output[1000]= {0};
 	int formatFlag = format(result1, result2, output);
 	if(formatFlag != 1)
 	{
