@@ -43,7 +43,6 @@ int validate(double* a, double* b, double* c, char* line, int length)
 		ret = VLDT_ERR_INPUT_RANGE;
 	} else {							// a is ok
 		*a = (double) parsed;
-		// printf("a: %f | %s\n", (float) *a, endptr);
 		oldptr = endptr;
 
 		parsed = strtof(endptr, &endptr);	// try to parse b
@@ -54,7 +53,6 @@ int validate(double* a, double* b, double* c, char* line, int length)
 			ret = VLDT_ERR_INPUT_RANGE;
 		} else {
 			*b = (double) parsed;
-			// printf("b: %f | %s\n", (float) *b, endptr);
 			oldptr = endptr;
 
 			parsed = strtof(endptr, &endptr);
@@ -67,7 +65,6 @@ int validate(double* a, double* b, double* c, char* line, int length)
 				ret = VLDT_ERR_RESULT_NAN;
 			} else {
 				*c = (double) parsed;
-				// printf("c: %f | %s\n", (float) *c, endptr);
 				ret = VLDT_SUCCESS;
 			}
 		}
