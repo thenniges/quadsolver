@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
 #include <errno.h>
 #include "validate.h"
 
@@ -31,32 +32,37 @@ int validate(double* a, double* b, double* c, char* line, int length)
 		} else {						// a is 0, not allowed
 			ret = VLDT_ERR_A_ZERO;
 		}
-	} else if ((parsed == NAN) || (parsed == INFINITY)) {
+	} else if ((isnan(parsed)) || (isinf(parsed))) {
 		ret = VLDT_ERR_INPUT_RANGE;		// also not allowed
+	} else if ((fabsf(parsed) > FLT_MAX) || (fabsf(parsed) < FLT_MIN)) {
+		ret = VLDT_ERR_INPUT_RANGE;
 	} else {							// a is ok
 		*a = (double) parsed;
+		// printf("a: %f | %s\n", (float) *a, endptr);
 		oldptr = endptr;
 
 		parsed = strtof(endptr, &endptr);	// try to parse b
 		if (oldptr == endptr) {
 			ret = VLDT_ERR_FORMAT;
 		} else if ((errno == ERANGE) ||
-			(parsed == NAN) || (parsed == INFINITY)) {
+			(isnan(parsed)) || (isinf(parsed))) {
 			ret = VLDT_ERR_INPUT_RANGE;
 		} else {
 			*b = (double) parsed;
+			// printf("b: %f | %s\n", (float) *b, endptr);
 			oldptr = endptr;
 
 			parsed = strtof(endptr, &endptr);
 			if (oldptr == endptr) {
 				ret = VLDT_ERR_FORMAT;
 			} else if ((errno == ERANGE) ||
-				(parsed == NAN) || (parsed == INFINITY)) {
+				(isnan(parsed)) || (isinf(parsed))) {
 				ret = VLDT_ERR_INPUT_RANGE;
 			} else if (sqrt(((*b)*(*b)) - 4*(*a)*(*c)) < 0) {
 				ret = VLDT_ERR_RESULT_NAN;
 			} else {
 				*c = (double) parsed;
+				// printf("c: %f | %s\n", (float) *c, endptr);
 				ret = VLDT_SUCCESS;
 			}
 		}
