@@ -26,12 +26,12 @@ int calculate(double a, double b, double c, double* result1, double* result2)
 
   	if (determinant>0)
   	{
-      	*result1 = (-b+sqrt(determinant))/(2*a);
-      	*result2 = (-b-sqrt(determinant))/(2*a);
+      		*result1 = (-b+sqrt(determinant))/(2*a);
+      		*result2 = (-b-sqrt(determinant))/(2*a);
   	}
   	else if (determinant==0)
   	{
-    	*result1 = *result2 = -b/(2*a);
+    		*result1 = *result2 = -b/(2*a);
   	}
   	else if(a == 0.0)
 	{
@@ -41,10 +41,10 @@ int calculate(double a, double b, double c, double* result1, double* result2)
 		*result1 = *result2 = NAN;
 	}
 	if((*result1) > (*result2))
-    {
-      double temp = *result1;
-      *result1 = *result2;
-      *result2 = temp;
-    }
+    	{
+      		double temp = *result1;
+      		*result1 = *result2;
+      		*result2 = temp;
+    	}
 	return 1;
 }
