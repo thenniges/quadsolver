@@ -28,24 +28,23 @@ int calculate(double a, double b, double c, double* result1, double* result2)
   	{
       	*result1 = (-b+sqrt(determinant))/(2*a);
       	*result2 = (-b-sqrt(determinant))/(2*a);
-    	// printf("Roots are: %.2f and %.2f\n",r1 , r2);
   	}
   	else if (determinant==0)
   	{
     	*result1 = *result2 = -b/(2*a);
-    	// printf("Roots are: %.2f and %.2f\n", r1, r2);
   	}
   	else if(a == 0.0)
 	{
 		*result1 = *result2 = INFINITY;
-    	// real= -b/(2*a);
-    	// imag = sqrt(-determinant)/(2*a);
-    	// printf("Roots are: %.2f+%.2fi and %.2f-%.2fi\n", real, imag, real, imag);
 	}
 	else if(determinant < 0){
 		*result1 = *result2 = NAN;
 	}
-	// printf("%f", *result1);
-	// printf("%f", *result2);
+	if((*result1) > (*result2))
+    {
+      double temp = *result1;
+      *result1 = *result2;
+      *result2 = temp;
+    }
 	return 1;
 }
