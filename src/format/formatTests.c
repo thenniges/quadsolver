@@ -18,8 +18,8 @@ void simple_output_message(void) {
 	double result1 = 1.001;
     double result2 = 2.001;
     int flag = 0;
-    char actual[46];
-    char * expected = "The roots of this function are 1.001 and 2.001.\n";
+    char actual[80];
+    char * expected = "The roots of this function are 1.001000e+00 and 2.001000e+00.\n";
     //Call function
     flag = format(result1, result2, actual);
     TEST_ASSERT_EQUAL_INT(1, flag);
@@ -33,8 +33,8 @@ void simple_output_message_with_a_Nan(void) {
     double result1 = NAN;
     double result2 = 2.001;
     int flag = 0;
-    char actual[46];
-    char * expected = "The roots of this function are nan and 2.001.\n";
+    char actual[80];
+    char * expected = "The roots of this function are nan and 2.001000e+00.\n";
     //Call function
     flag = format(result1, result2, actual);
     TEST_ASSERT_EQUAL_INT(1, flag);
@@ -48,7 +48,7 @@ void simple_output_message_with_2_Nans(void) {
     double result1 = NAN;
     double result2 = NAN;
     int flag = 0;
-    char actual[46];
+    char actual[80];
     char * expected = "The roots of this function are nan and nan.\n";
     //Call function
     flag = format(result1, result2, actual);
@@ -63,8 +63,8 @@ void simple_output_message_with_an_inf(void) {
     double result1 = 1.001;
     double result2 = INFINITY;
     int flag = 0;
-    char actual[46];
-    char * expected = "The roots of this function are 1.001 and inf.\n";
+    char actual[80];
+    char * expected = "The roots of this function are 1.001000e+00 and inf.\n";
     //Call function
     flag = format(result1, result2, actual);
     TEST_ASSERT_EQUAL_INT(1, flag);
@@ -78,7 +78,7 @@ void simple_output_message_with_2_infs(void) {
     double result1 = INFINITY;
     double result2 = INFINITY;
     int flag = 0;
-    char actual[46];
+    char actual[80];
     char * expected = "The roots of this function are inf and inf.\n";
     //Call function
     flag = format(result1, result2, actual);
@@ -93,7 +93,7 @@ void simple_output_message_with_negative_infs(void) {
     double result1 = -INFINITY;
     double result2 = -INFINITY;
     int flag = 0;
-    char actual[46];
+    char actual[80];
     char * expected = "The roots of this function are -inf and -inf.\n";
     //Call function
     flag = format(result1, result2, actual);
